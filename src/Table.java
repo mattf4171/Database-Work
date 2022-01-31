@@ -19,8 +19,13 @@ public class Table implements Iterable<Instructor> {
 	 * @return
 	 */
 	public boolean insert(Instructor inst) {
-		// TO DO complete this method
-		throw new  UnsupportedOperationException();
+		for(int i =0; i< instructors.size()-1; i++) {
+			if(instructors.get(i).getID() == inst.getID()) { return false; } // case where ID is present in tbl
+			else { 
+				instructors.add(inst);
+				return true; 
+			}
+		}
 	}
 	
 	/**
@@ -30,8 +35,16 @@ public class Table implements Iterable<Instructor> {
 	 * @param ID
 	 */
 	public boolean delete(int ID) {
-		// TO DO complete this method
-		throw new  UnsupportedOperationException();
+		for(int i=0; i<instructors.size()-1; i++) {
+			if(instructors.get(i).getID() == ID) { // case where ID is found in tbl
+				instructors.remove(i); // remove the ith object from tbl
+				return true;
+			} else { return false; } // no such object exists in tbl
+		}
+//		if(instructors.contains(ID)) {
+//			instructors.remove(ID);
+//			return true;
+//		}else return false;
 	}
 	
 	/**
@@ -40,8 +53,12 @@ public class Table implements Iterable<Instructor> {
 	 * @param ID
 	 */
 	public Instructor lookup(int ID) {
-		// TO DO complete this method
-		throw new  UnsupportedOperationException();
+		for(int i = 0; i < instructors.size(); i++) {
+			if(instructors.get(i).getID() == ID) {
+				Instructor in = instructors.get(i);
+				return new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary());
+			}else { return null; }
+		}
 	}
 	
 	/**
@@ -52,7 +69,41 @@ public class Table implements Iterable<Instructor> {
 	 */
 	public Table eval(String attrName, Object value) {
 		// TO DO complete this method
-		throw new  UnsupportedOperationException();
+		// may use switch statement
+		Table tbl = new Table(); // instantiate new table obj
+		// handle int or string types
+		switch(attrName) {
+		case(attrName == "ID"):
+			for(int i=0; i<instructors.size(); i++) {
+				if(instructors.get(i).getID() == (int) value) {
+					Instructor in = instructors.get(i);
+					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
+				}
+			}
+		case(attrName == "name"):
+			for (int i = 0; i < instructors.size(); i++) {
+				if( instructors.get(i).getName() == value) {
+					Instructor in = instructors.get(i);
+					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
+				}
+			}
+		case(attrName == "dept_name"):
+			for (int i = 0; i < instructors.size(); i++) {
+				if( instructors.get(i).getDept_name() == value) {
+					Instructor in = instructors.get(i);
+					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
+				}
+			}
+		case(attrName == "salary"):
+			
+			for (int i = 0; i < instructors.size(); i++) {
+				if( instructors.get(i).getSalary() == (int) value) {
+					Instructor in = instructors.get(i);
+					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
+				}
+			}
+		return tbl;
+		}
 	}
 	
 	public Iterator<Instructor> iterator() {
@@ -73,3 +124,4 @@ public class Table implements Iterable<Instructor> {
 	}
 
 }
+
