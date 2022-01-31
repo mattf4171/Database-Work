@@ -41,10 +41,6 @@ public class Table implements Iterable<Instructor> {
 				return true;
 			} else { return false; } // no such object exists in tbl
 		}
-//		if(instructors.contains(ID)) {
-//			instructors.remove(ID);
-//			return true;
-//		}else return false;
 	}
 	
 	/**
@@ -54,7 +50,7 @@ public class Table implements Iterable<Instructor> {
 	 */
 	public Instructor lookup(int ID) {
 		for(int i = 0; i < instructors.size(); i++) {
-			if(instructors.get(i).getID() == ID) {
+			if(instructors.get(i).getID() == ID) { // found the ID in the Inst obj, 
 				Instructor in = instructors.get(i);
 				return new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary());
 			}else { return null; }
@@ -72,7 +68,7 @@ public class Table implements Iterable<Instructor> {
 		// may use switch statement
 		Table tbl = new Table(); // instantiate new table obj
 		// handle int or string types
-		switch(attrName) {
+		switch(attrName) { // case where attrName is present, always true
 		case(attrName == "ID"):
 			for(int i=0; i<instructors.size(); i++) {
 				if(instructors.get(i).getID() == (int) value) {
