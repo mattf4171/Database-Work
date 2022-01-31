@@ -64,33 +64,31 @@ public class Table implements Iterable<Instructor> {
 	 * @param search value of data type int or String.
 	 */
 	public Table eval(String attrName, Object value) {
-		// TO DO complete this method
-		// may use switch statement
-		Table tbl = new Table(); // instantiate new table obj
+Table tbl = new Table(); // instantiate new table obj
 		// handle int or string types
 		switch(attrName) { // case where attrName is present, always true
-		case(attrName == "ID"):
+		case("ID"):
 			for(int i=0; i<instructors.size(); i++) {
 				if(instructors.get(i).getID() == (int) value) {
 					Instructor in = instructors.get(i);
 					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
 				}
 			}
-		case(attrName == "name"):
+		case("name"):
 			for (int i = 0; i < instructors.size(); i++) {
 				if( instructors.get(i).getName() == value) {
 					Instructor in = instructors.get(i);
 					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
 				}
 			}
-		case(attrName == "dept_name"):
+		case("dept_name"):
 			for (int i = 0; i < instructors.size(); i++) {
 				if( instructors.get(i).getDept_name() == value) {
 					Instructor in = instructors.get(i);
 					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
 				}
 			}
-		case(attrName == "salary"):
+		case("salary"):
 			
 			for (int i = 0; i < instructors.size(); i++) {
 				if( instructors.get(i).getSalary() == (int) value) {
