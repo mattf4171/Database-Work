@@ -21,11 +21,11 @@ public class Table implements Iterable<Instructor> {
 	public boolean insert(Instructor inst) {
 		for(int i =0; i <= instructors.size()-1; i++) {
 			if(instructors.get(i).getID() == inst.getID()) { return false; } // case where ID is present in tbl
-			else { 
-				instructors.add(inst);
-				return true; 
+			
 			}
-		}
+		
+		instructors.add(inst);
+		return true;  
 	}
 	
 	/**
@@ -39,8 +39,9 @@ public class Table implements Iterable<Instructor> {
 			if(instructors.get(i).getID() == ID) { // case where ID is found in tbl
 				instructors.remove(i); // remove the ith object from tbl
 				return true;
-			} else { return false; } // no such object exists in tbl
+			} 
 		}
+		return false;  // no such object exists in tbl
 	}
 	
 	/**
@@ -53,8 +54,9 @@ public class Table implements Iterable<Instructor> {
 			if(instructors.get(i).getID() == ID) { // found the ID in the Inst obj, 
 				Instructor in = instructors.get(i);
 				return new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary());
-			}else { return null; }
+			}
 		}
+		return null;
 	}
 	
 	/**
@@ -74,28 +76,33 @@ public class Table implements Iterable<Instructor> {
 					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
 				}
 			}
+			break; // break from the case 
 		case("name"): // case that attrName == "name"
 			for (int i = 0; i <= instructors.size()-1; i++) {
-				if( instructors.get(i).getName() == value) {
+				if( instructors.get(i).getName() == (String) value) {
 					Instructor in = instructors.get(i); // create new Instructor obj to add to table
 					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
 				}
 			}
+			break;
+
 		case("dept_name"): // case that attrName == "dept_name"
 			for (int i = 0; i <= instructors.size()-1; i++) {
-				if( instructors.get(i).getDept_name() == value) {
+				if( instructors.get(i).getDept_name() == (String) value) {
 					Instructor in = instructors.get(i); // create new Instructor obj to add to table
 					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
 				}
 			}
+			break;
+
 		case("salary"): // case that attrName == "salary"
-			
 			for (int i = 0; i <= instructors.size()-1; i++) {
 				if( instructors.get(i).getSalary() == (int) value) {
 					Instructor in = instructors.get(i); // create new Instructor obj to add to table
 					tbl.insert(new Instructor(in.getID(), in.getName(), in.getDept_name(), in.getSalary()));
 				}
 			}
+			break;
 		return tbl;
 		}
 	}
