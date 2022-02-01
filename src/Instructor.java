@@ -57,16 +57,6 @@ public class Instructor {
 		return "Instructor [ID=" + ID + ", name=" + name + ", dept_name=" + dept_name + ", salary=" + salary + "]";
 	}
 	
-	
-	// TODO 
-	
-	/* 
-	 * use Eclipse generate function to
-	 *    generate constructor using fields
-	 *    generate getter/setters
-	 *    generate toString 
-	 *    generate equals
-	 */
 
 }
 
