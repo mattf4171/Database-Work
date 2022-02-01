@@ -1,14 +1,18 @@
 Week 01
-Programmer: <your name>
-Partner: <name>
-How much time did your spend reviewing your partern's code:  <nn minutes> 
+Programmer: <Matthew >
+Partner: <Yuki Okamoto>
+How much time did your spend reviewing your parter's code:  <60 minutes> 
 
 The following is repeated for each item brought up at the review.
 
-Item Description: <describe the issue> 
-Classification:   code Error | suggestion | comments 
-Resolution:  YES | NO | if NO, why not?
+Item Description: <Needed a few more comments> 
+Classification:   comments 
+Resolution:  YES
 
-Item Description: <describe the issue> 
-Classification:   code Error | suggestion | comments 
-Resolution:  YES | NO | if NO, why not?
+Item Description: <If statement is a bit harder to implement than switch case, will clean up code if implemented switch case> 
+Classification:   suggestion
+Resolution:  NO need, works just fine.
+
+Item Description: <Missing the delete print statement in delete method saying true or false if it was possible to delete the specified ID> 
+Classification:   suggestion
+Resolution:  YES
